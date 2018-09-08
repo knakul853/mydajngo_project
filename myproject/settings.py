@@ -25,7 +25,7 @@ SECRET_KEY = ')c=1*5+ic4u+-n&!+yv#2$!-31m0(er2*x^ot@dkze3*yu#lsh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'boards'
+    'widget_tweaks',
+    'boards',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,6 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+LOGOUT_REDIRECT_URL = 'home'
