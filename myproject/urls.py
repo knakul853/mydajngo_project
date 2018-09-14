@@ -1,12 +1,18 @@
-
 from django.contrib import admin
 from django.urls import path,include
 from boards import views
 from accounts import views as accounts_views
 from django.contrib.auth import views as auth_views
 urlpatterns = [
+
+    path('boards/<int:pk>/',views.TopicListView.as_view(),name='board_topics'),
+    path('boards/<int:pk>/new/',views.new_topic,name='new_topic'),
+    #path('',views.home,name='home'),
+
+    path('', views.BoardListView.as_view(), name='home'),
+
     path('admin/', admin.site.urls),
-    path('',include('boards.urls')),
+    #path('',include('boards.urls')),
     path('signup/',include('accounts.urls')),
     path('logout/',auth_views.LogoutView.as_view(),name='logout'),
     path('login/',auth_views.LoginView.as_view(template_name='login.html'),name='login'),
@@ -37,7 +43,12 @@ urlpatterns = [
     path('setting/password/done/',auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html'),
          name='password_change_done'),
 
-    path('boards/<int:pk>/topics/<int:topic_pk>/', views.topic_posts, name='topic_posts'),
+    path('boards/<int:pk>/topics/<int:topic_pk>/',views.PostListView.as_view(), name='topic_posts'),
 
     path('boards/<int:pk>/topics/<int:topic_pk>/reply/', views.reply_topic, name='reply_topic'),
+
+    path('boards/<int:pk>/topics/<int:topic_pk>/posts/<int:post_pk>/edit/',
+        views.PostUpdateView.as_view(), name='edit_post'),
+
+    path('settings/account/', views.UserUpdateView.as_view(), name='my_account'),
 ]
