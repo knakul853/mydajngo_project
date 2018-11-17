@@ -2,6 +2,8 @@
 
 ### Django Project
 
+[![Join the chat at https://gitter.im/mydajngo_project/Lobby](https://badges.gitter.im/mydajngo_project/Lobby.svg)](https://gitter.im/mydajngo_project/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## A django board
 
 Basic  login and comment thread  site written in Django
